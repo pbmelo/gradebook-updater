@@ -54,7 +54,7 @@ for each_idkey in att_student_idkey:
     if each_idkey in student_login:
         i = student_login.index(each_idkey)
         j = att_student_idkey.index(each_idkey)
-        student_grade[i] = str(int(4.0*float(att_student_time[j])/50.0))
+        student_grade[i] = "4" if float(att_student_time[j]) >= 50.0 else str(int(5.0*float(att_student_time[j])/50.0))
 
 this_wk_tut = [column_title for column_title in first_line_list if 'Week '+wk_num+' Tutorial' in column_title]
 new_first_line = ','.join(first_line_list[0:6]+this_wk_tut)
