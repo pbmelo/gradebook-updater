@@ -3,6 +3,22 @@
 print("Type the week number of the desired recitation (e.g. 3):")
 wk_num = input()
 #wk_num = '3'
+week_titles = [ "Week 1 Tutorial Participation - Pretest (917248)",
+"Week 2 Tutorial Participation - Reps of Motion (932464)",
+"Week 3 Tutorial Participation - Accel in 1D (917249)",
+"Week 4 Tutorial Participation - Motion in 2D (917250)",
+"Week 5 Tutorial Participation - Forces (917251)",
+"Week 6 Tutorial Participation - Newton 2 and 3 (917252)",
+"Week 7 Tutorial Participation - Tension (917253)",
+"Week 8 Tutorial Participation - Work and KE (917254)",
+"Week 9 Tutorial Participation - Cons. of Energy (917255)",
+"Week 10 Tutorial Participation - Cons. of Mom. in 1D (917256)",
+"Week 11 Tutorial Participation - Cons. of Mom. in 2D (917243)",
+"Week 12 Tutorial Participation - Dyn. of Rigid Bodies (917244)",
+"Week 13 Tutorial Participation - Cons. of Ang. Mom. (917245)",
+"Week 14 Tutorial Participation - SHM (917246)",
+"Week 15 Tutorial Participation - Buoyancy (917247)" ]
+print("You've chosen to enter the participation for "+week_titles[int(wk_num)-1]+"\n")
 print("Type the path of the gradebook exported from Canvas (e.g. '2021-01-29T1424_Grades-PHYS_1110_Sp21.csv'):")
 old_gradebook_path = input()
 #old_gradebook_path = '2021-01-29T1424_Grades-PHYS_1110_Sp21.csv'
