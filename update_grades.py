@@ -1,29 +1,43 @@
 #!/usr/bin/env python3
 
-print("Type the week number of the desired recitation (e.g. 3):")
+print("Type the tutorial number of the desired recitation (e.g. 3):")
+
+week_titles=[ "Tut Part Jun 1 (991165)",
+"Tut Part Jun 2 (991166)",
+"Tut Part Jun 3 (991162)",
+"Tut Part Jun 7 (991164)",
+"Tut Part Jun 8 (991161)",
+"Tut Part Jun 9 (991163)",
+"Tut Part Jun 10 (991168)",
+"Tut Part Jun 14 (991171)",
+"Tut Part Jun 15 (991167)",
+"Tut Part Jun 16 (991169)",
+"Tut Part Jun 17 (991170)",
+"Tut Part Jun 21 (991160)",
+"Tut Part Jun 22 (991157)",
+"Tut Part Jun 23 (991158)",
+"Tut Part Jun 24 (991159)",
+"Tut Part Jun 28 (1058071)",
+"Tut Part Jun 29 (1058072)",
+"Tut Part Jun 30 (1058073)",
+"Tut Part Jul 1 (1058075)" ]
+
+i=1
+for each_title in week_titles:
+    print(str(i)+") "+each_title)
+    i=i+1
+
 wk_num = input()
-#wk_num = '3'
-week_titles = [ "Week 1 Tutorial Participation - Pretest (917248)",
-"Week 2 Tutorial Participation - Reps of Motion (932464)",
-"Week 3 Tutorial Participation - Accel in 1D (917249)",
-"Week 4 Tutorial Participation - Motion in 2D (917250)",
-"Week 5 Tutorial Participation - Forces (917251)",
-"Week 6 Tutorial Participation - Newton 2 and 3 (917252)",
-"Week 7 Tutorial Participation - Tension (917253)",
-"Week 8 Tutorial Participation - Work and KE (917254)",
-"Week 9 Tutorial Participation - Cons. of Energy (917255)",
-"Week 10 Tutorial Participation - Cons. of Mom. in 1D (917256)",
-"Week 11 Tutorial Participation - Cons. of Mom. in 2D (917243)",
-"Week 12 Tutorial Participation - Dyn. of Rigid Bodies (917244)",
-"Week 13 Tutorial Participation - Cons. of Ang. Mom. (917245)",
-"Week 14 Tutorial Participation - SHM (917246)",
-"Week 15 Tutorial Participation - Buoyancy (917247)" ]
-print("You've chosen to enter the participation for "+week_titles[int(wk_num)-1]+"\n")
+this_wk_tut=week_titles[int(wk_num)-1]
+print("You've chosen to enter the participation for "+this_wk_tut+"\n")
+
 print("Type the path of the gradebook exported from Canvas (e.g. '2021-01-29T1424_Grades-PHYS_1110_Sp21.csv'):")
-old_gradebook_path = input()
-#old_gradebook_path = '2021-01-29T1424_Grades-PHYS_1110_Sp21.csv'
+#old_gradebook_path = input()
+old_gradebook_path = '2021-06-01T1313_Grades-PHYS_1110.csv'
+
 print("Type the paths for all rosters downloaded from Zoom (need to use unique participants, end with Ctrl+D):")
-attendance_paths = []
+#attendance_paths = []
+attendance_paths = ['participants_7632002042.csv']
 while True:
     try:
         line = input()
@@ -31,6 +45,7 @@ while True:
     except EOFError:
         break;
 #attendance_paths = ['participants_7632002042(1).csv', 'participants_7632002042(2).csv', 'participants_7632002042.csv']
+
 new_gradebook_path = 'Grades-PHYS_1110_Sp21-Updated.csv'
 
 splitted = []
@@ -41,7 +56,7 @@ with open(old_gradebook_path,'r') as old_gradebook:
     student_sis     = []
     student_login   = []
     student_section = []
-    student_ta      = []
+    #student_ta      = []
     student_grade   = []
     for each_line in old_gradebook:
         if each_line[0] == '"':
@@ -51,7 +66,7 @@ with open(old_gradebook_path,'r') as old_gradebook:
             student_sis.append(splitted[3])
             student_login.append(splitted[4])
             student_section.append(splitted[5])
-            student_ta.append(splitted[6]+','+splitted[7])
+            #student_ta.append(splitted[6]+','+splitted[7])
             student_grade.append('0')
 
 att_student_names = []
@@ -70,16 +85,17 @@ for each_idkey in att_student_idkey:
     if each_idkey in student_login:
         i = student_login.index(each_idkey)
         j = att_student_idkey.index(each_idkey)
+        print(each_idkey)
         student_grade[i] = "4" if float(att_student_time[j]) >= 50.0 else str(int(5.0*float(att_student_time[j])/50.0))
 
-this_wk_tut = [column_title for column_title in first_line_list if 'Week '+wk_num+' Tutorial' in column_title]
-new_first_line = ','.join(first_line_list[0:6]+this_wk_tut)
+#this_wk_tut = [column_title for column_title in first_line_list if 'Week '+wk_num+' Tutorial' in column_title]
+new_first_line = ','.join(first_line_list[0:5]+[this_wk_tut])
 
 with open(new_gradebook_path,'w') as new_gradebook:
     new_gradebook.write(new_first_line+'\n')
-    new_gradebook.write(',,,,,,\n')
+    new_gradebook.write(',,,,,\n')
     for i in range(0,len(student_names)-1):
-        new_gradebook.write(student_names[i]+','+student_ids[i]+','+student_sis[i]+','+student_login[i]+','+student_section[i]+','+student_ta[i]+','+student_grade[i]+'\n')
+        new_gradebook.write(student_names[i]+','+student_ids[i]+','+student_sis[i]+','+student_login[i]+','+student_section[i]+','+student_grade[i]+'\n')
 
 print("\nAn updated gradebook file called "+new_gradebook_path+" has been created.\n")
 print("After uploading the new gradebook to Canvas, do not")
