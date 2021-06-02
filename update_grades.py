@@ -85,8 +85,10 @@ for each_idkey in att_student_idkey:
     if each_idkey in student_login:
         i = student_login.index(each_idkey)
         j = att_student_idkey.index(each_idkey)
-        print(each_idkey)
+        #print(each_idkey)
         student_grade[i] = "4" if float(att_student_time[j]) >= 50.0 else str(int(5.0*float(att_student_time[j])/50.0))
+    else:
+        print("Warning! Student "+each_idkey+" is not from any of your sections.")
 
 #this_wk_tut = [column_title for column_title in first_line_list if 'Week '+wk_num+' Tutorial' in column_title]
 new_first_line = ','.join(first_line_list[0:5]+[this_wk_tut])
