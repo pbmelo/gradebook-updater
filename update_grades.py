@@ -32,12 +32,12 @@ this_wk_tut=week_titles[int(wk_num)-1]
 print("You've chosen to enter the participation for "+this_wk_tut+"\n")
 
 print("Type the path of the gradebook exported from Canvas (e.g. '2021-01-29T1424_Grades-PHYS_1110_Sp21.csv'):")
-#old_gradebook_path = input()
-old_gradebook_path = '2021-06-01T1313_Grades-PHYS_1110.csv'
+old_gradebook_path = input()
+#old_gradebook_path = '2021-06-01T1313_Grades-PHYS_1110.csv'
 
 print("Type the paths for all rosters downloaded from Zoom (need to use unique participants, end with Ctrl+D):")
-#attendance_paths = []
-attendance_paths = ['participants_7632002042.csv']
+attendance_paths = []
+#attendance_paths = ['participants_7632002042.csv']
 while True:
     try:
         line = input()
