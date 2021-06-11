@@ -10,8 +10,17 @@ python3.8 and it seems to work fine.
 
 ## Usage
 
-At the moment, the repository consists of a single python
-script, very simple of using. Just launch a terminal and
+At the moment, the repository consists of two main forms of using the program: a python
+script, very simple to use, and a web application.
+
+### Web app
+
+If you're looking for the web app version of this program, check
+https://pbmelo.github.io/gradebook-updater/web_app/main.html
+
+### Python script
+
+Just launch a terminal and
 type
 
 `python ./update_grades.py`

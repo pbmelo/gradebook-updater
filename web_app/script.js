@@ -5,33 +5,6 @@ document.getElementById('gradebook-file')
 document.getElementById('calculate-button')
   .addEventListener('click', calculateGrades)
 
-var obj_csv_gb = {
-    size:0,
-    dataFile:[]
-};
-
-var obj_csv = {
-    size:0,
-    dataFile:[]
-};
-
-const export_csv = (arrayHeader, arrayData, delimiter, fileName) => {
-            let header = arrayHeader.join(delimiter) + '\n';
-            let csv = header;
-            arrayData.forEach( array => {
-                csv += array.join(delimiter)+"\n";
-            });
- 
-            let csvData = new Blob([csv], { type: 'text/csv' });  
-            let csvUrl = URL.createObjectURL(csvData);
- 
-            let hiddenElement = document.createElement('a');
-            hiddenElement.href = csvUrl;
-            hiddenElement.target = '_blank';
-            hiddenElement.download = fileName + '.csv';
-            hiddenElement.click();
-        }
-
 results_gb = [];
 results_ps = [];
 roster_idkey_arr = [];
@@ -150,68 +123,4 @@ function calculateGrades() {
 	} else {
 		alert("Missing participation!");
 	}
-}
-
-function readFileGradebook(event) {
-	const input = event.target
-    console.log(input)
- if (input.files && input.files[0]) {
- let reader = new FileReader();
-        reader.readAsBinaryString(input.files[0]);
- reader.onload = function (e) {
- console.log(e);
- obj_csv_gb.size = e.total;
- obj_csv_gb.dataFile = e.target.result
-            //console.log(obj_csv.dataFile)
-            parseDataGradebook(obj_csv_gb.dataFile)
-            
- }
- }
-}
-
-function parseDataGradebook(data){
-    let csvData = [];
-    let lbreak = data.split("\n");
-    lbreak.forEach(res => {
-        csvData.push(res.split(","));
-    });
-    //console.table(csvData);
-    for (i = 1; i < csvData.length-1; i++) {
-	console.log(csvData[i][1]);
-    }
-}
-
-function readFileParticipation(event) {
-	const input = event.target
-    console.log(input)
- if (input.files && input.files[0]) {
- let reader = new FileReader();
-        reader.readAsBinaryString(input.files[0]);
- reader.onload = function (e) {
- console.log(e);
- obj_csv.size = e.total;
- obj_csv.dataFile = e.target.result
-            //console.log(obj_csv.dataFile)
-            parseDataParticipation(obj_csv.dataFile)
-            
- }
- }
-}
-
-function parseDataParticipation(data){
-    let csvData = [];
-    let lbreak = data.split("\n");
-    lbreak.forEach(res => {
-        csvData.push(res.split(","));
-    });
-    //console.table(csvData);
-    for (i = 1; i < csvData.length-1; i++) {
-	time=csvData[i][2];
-	if (time > 50) {
-		grade = 4;
-	} else {
-		grade = Math.round(4*time/50);
-	}
-    	console.log(csvData[i][1].replace("@colorado.edu",""),grade);
-    }
 }
