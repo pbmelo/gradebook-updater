@@ -84,7 +84,7 @@ function calculateGrades() {
 								if (roster_grade_arr[ii]>=50) {
 									this_line += "4";
 								} else {
-									this_line += Math.floor(4*roster_grade_arr[ii]/50);
+									this_line += Math.floor(5*roster_grade_arr[ii]/50);
 								}
 								this_line += "\n";
 								//console.log(this_line);
