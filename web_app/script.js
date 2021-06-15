@@ -76,7 +76,7 @@ function calculateGrades() {
 						this_line += gradebook_ids+",";
 						this_line += gradebook_sis+",";
 						student_exists = false;
-						for (ii=1; ii<results_ps.length-1; ii++) {
+						for (ii=0; ii<results_ps.length-1; ii++) {
 							if (gradebook_idkey == roster_idkey_arr[ii]) {
 								student_exists = true;
 								this_line += roster_idkey_arr[ii]+",";
