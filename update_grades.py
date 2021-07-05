@@ -2,25 +2,33 @@
 
 print("Type the tutorial number of the desired recitation (e.g. 3):")
 
-week_titles=[ "Tut Part Jun 1 (991165)",
-"Tut Part Jun 2 (991166)",
-"Tut Part Jun 3 (991162)",
-"Tut Part Jun 7 (991164)",
-"Tut Part Jun 8 (991161)",
-"Tut Part Jun 9 (991163)",
-"Tut Part Jun 10 (991168)",
-"Tut Part Jun 14 (991171)",
-"Tut Part Jun 15 (991167)",
-"Tut Part Jun 16 (991169)",
-"Tut Part Jun 17 (991170)",
-"Tut Part Jun 21 (991160)",
-"Tut Part Jun 22 (991157)",
-"Tut Part Jun 23 (991158)",
-"Tut Part Jun 24 (991159)",
-"Tut Part Jun 28 (1058071)",
-"Tut Part Jun 29 (1058072)",
-"Tut Part Jun 30 (1058073)",
-"Tut Part Jul 1 (1058075)" ]
+# Daniel Sm21 1110 style
+#week_titles=[ "Tut Part Jun 1 (991165)",
+#"Tut Part Jun 2 (991166)",
+#"Tut Part Jun 3 (991162)",
+#"Tut Part Jun 7 (991164)",
+#"Tut Part Jun 8 (991161)",
+#"Tut Part Jun 9 (991163)",
+#"Tut Part Jun 10 (991168)",
+#"Tut Part Jun 14 (991171)",
+#"Tut Part Jun 15 (991167)",
+#"Tut Part Jun 16 (991169)",
+#"Tut Part Jun 17 (991170)",
+#"Tut Part Jun 21 (991160)",
+#"Tut Part Jun 22 (991157)",
+#"Tut Part Jun 23 (991158)",
+#"Tut Part Jun 24 (991159)",
+#"Tut Part Jun 28 (1058071)",
+#"Tut Part Jun 29 (1058072)",
+#"Tut Part Jun 30 (1058073)",
+#"Tut Part Jul 1 (1058075)" ]
+
+# Colin Sm21 1120 style
+week_titles=[ "Tutorial Participation July 6 (1068744)",
+"Tutorial Participation July 7 (1074009)",
+"Tutorial Participation July 8 (1074010)",
+"Tutorial Participation July 9 (1074011)",
+]
 
 i=1
 for each_title in week_titles:
@@ -46,7 +54,7 @@ while True:
         break;
 #attendance_paths = ['participants_7632002042(1).csv', 'participants_7632002042(2).csv', 'participants_7632002042.csv']
 
-new_gradebook_path = 'Grades-PHYS_1110_Sp21-Updated.csv'
+new_gradebook_path = 'Grades-PHYS_1120_Sm21-Updated.csv'
 
 splitted = []
 with open(old_gradebook_path,'r') as old_gradebook:

@@ -103,7 +103,7 @@ function calculateGrades() {
 					//console.log(output);
 					//window.alert(output);
 					string = output.join();
-				    fileName = "Grades-PHYS_1110_Sp21-Updated";
+				    fileName = "Grades-PHYS_1120_Sm21-Updated";
 					let csvData = new Blob(output, { type: 'text/csv' });
 					//let csvData = new Blob([string], { type: 'text/csv' });
 					let csvUrl = URL.createObjectURL(csvData);
